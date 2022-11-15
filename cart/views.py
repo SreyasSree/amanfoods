@@ -14,29 +14,6 @@ def cart_list(request):
 
 
 
-def checkout(request):
-    cart = Cart(request)
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            order = form.save()
-
-            for item in cart:
-                OrderItem.objects.create(
-                    order=order,
-                    product=item['product'],
-                )
-            return redirect('home:success')
-
-
-    form = OrderForm()
-
-    context ={
-        'form':form,
-        'cart':cart,
-    }
-    return render(request ,'cart/checkout.html',context)
-
 
 def cart_add(request,pk):
     cart = Cart(request)
@@ -51,3 +28,27 @@ def cart_remove(request,pk):
         cart.remove(pk)
         return redirect('cart:cart_list')
 
+def checkout(request):
+    cart = Cart(request)
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save()
+
+            for item in cart:
+                OrderItem.objects.create(
+                    order=order,
+                    product=item['product'],
+                )
+            cart.clear()
+            return redirect('home:success')
+            
+
+
+    form = OrderForm()
+
+    context ={
+        'form':form,
+        'cart':cart,
+    }
+    return render(request ,'cart/checkout.html',context)

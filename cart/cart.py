@@ -56,3 +56,7 @@ class Cart(object):
         for item in self.cart.values():
             count += 1
         return count
+
+    def clear(self):
+        del self.session[settings.CART_SESSION_ID]
+        self.save()
