@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Title -->
+  <title>{% block title %}{% endblock title %} </title>
+
+  
+    <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+    
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{% static 'assets/css/vendor.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap-icons/font/bootstrap-icons.css' %}">
+
+  <!-- CSS Ecome Template -->
+  <link rel="stylesheet" href="{% static 'assets/css/theme.minc619.css' %}">  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-toaster.css' %}" />
+
+
+  <!-- Font -->
+  <link href="{% static 'productsingle_files/css2' %}" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{% static 'productsingle_files/vendor.min.css' %}">
+  <link rel="stylesheet" href="{% static 'productsingle_files/bootstrap-icons.css' %}">
+
+  <!-- CSS Ecome Template -->
+  <link rel="stylesheet" href="{% static 'productsingle_files/theme.minc619.css' %}"><style class="fslightbox-styles">.fslightbox-absoluted{position:absolute;top:0;left:0}.fslightbox-fade-in{animation:fslightbox-fade-in .3s cubic-bezier(0,0,.7,1)}.fslightbox-fade-out{animation:fslightbox-fade-out .3s ease}.fslightbox-fade-in-strong{animation:fslightbox-fade-in-strong .3s cubic-bezier(0,0,.7,1)}.fslightbox-fade-out-strong{animation:fslightbox-fade-out-strong .3s ease}@keyframes fslightbox-fade-in{from{opacity:.65}to{opacity:1}}@keyframes fslightbox-fade-out{from{opacity:.35}to{opacity:0}}@keyframes fslightbox-fade-in-strong{from{opacity:.3}to{opacity:1}}@keyframes fslightbox-fade-out-strong{from{opacity:1}to{opacity:0}}.fslightbox-cursor-grabbing{cursor:grabbing}.fslightbox-full-dimension{width:100%;height:100%}.fslightbox-open{overflow:hidden;height:100%}.fslightbox-flex-centered{display:flex;justify-content:center;align-items:center}.fslightbox-opacity-0{opacity:0!important}.fslightbox-opacity-1{opacity:1!important}.fslightbox-scrollbarfix{padding-right:17px}.fslightbox-transform-transition{transition:transform .3s}.fslightbox-container{font-family:Arial,sans-serif;position:fixed;top:0;left:0;background:linear-gradient(rgba(30,30,30,.9),#000 1810%);touch-action:pinch-zoom;z-index:1000000000;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.fslightbox-container *{box-sizing:border-box}.fslightbox-svg-path{transition:fill .15s ease;fill:#ddd}.fslightbox-nav{height:45px;width:100%;position:absolute;top:0;left:0}.fslightbox-slide-number-container{display:flex;justify-content:center;align-items:center;position:relative;height:100%;font-size:15px;color:#d7d7d7;z-index:0;max-width:55px;text-align:left}.fslightbox-slide-number-container .fslightbox-flex-centered{height:100%}.fslightbox-slash{display:block;margin:0 5px;width:1px;height:12px;transform:rotate(15deg);background:#fff}.fslightbox-toolbar{position:absolute;z-index:3;right:0;top:0;height:100%;display:flex;background:rgba(35,35,35,.65)}.fslightbox-toolbar-button{height:100%;width:45px;cursor:pointer}.fslightbox-toolbar-button:hover .fslightbox-svg-path{fill:#fff}.fslightbox-slide-btn-container{display:flex;align-items:center;padding:12px 12px 12px 6px;position:absolute;top:50%;cursor:pointer;z-index:3;transform:translateY(-50%)}@media (min-width:476px){.fslightbox-slide-btn-container{padding:22px 22px 22px 6px}}@media (min-width:768px){.fslightbox-slide-btn-container{padding:30px 30px 30px 6px}}.fslightbox-slide-btn-container:hover .fslightbox-svg-path{fill:#f1f1f1}.fslightbox-slide-btn{padding:9px;font-size:26px;background:rgba(35,35,35,.65)}@media (min-width:768px){.fslightbox-slide-btn{padding:10px}}@media (min-width:1600px){.fslightbox-slide-btn{padding:11px}}.fslightbox-slide-btn-container-previous{left:0}@media (max-width:475.99px){.fslightbox-slide-btn-container-previous{padding-left:3px}}.fslightbox-slide-btn-container-next{right:0;padding-left:12px;padding-right:3px}@media (min-width:476px){.fslightbox-slide-btn-container-next{padding-left:22px}}@media (min-width:768px){.fslightbox-slide-btn-container-next{padding-left:30px}}@media (min-width:476px){.fslightbox-slide-btn-container-next{padding-right:6px}}.fslightbox-down-event-detector{position:absolute;z-index:1}.fslightbox-slide-swiping-hoverer{z-index:4}.fslightbox-invalid-file-wrapper{font-size:22px;color:#eaebeb;margin:auto}.fslightbox-video{object-fit:cover}.fslightbox-youtube-iframe{border:0}.fslightbox-loader{display:block;margin:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:67px;height:67px}.fslightbox-loader div{box-sizing:border-box;display:block;position:absolute;width:54px;height:54px;margin:6px;border:5px solid;border-color:#999 transparent transparent transparent;border-radius:50%;animation:fslightbox-loader 1.2s cubic-bezier(.5,0,.5,1) infinite}.fslightbox-loader div:nth-child(1){animation-delay:-.45s}.fslightbox-loader div:nth-child(2){animation-delay:-.3s}.fslightbox-loader div:nth-child(3){animation-delay:-.15s}@keyframes fslightbox-loader{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.fslightbox-source{position:relative;z-index:2;opacity:0}</style><script src="{% static 'productsingle_files/clipboard.min.js' %}"></script></head>
+
+
+</head>
+
+<body>
+  <!-- ========== HEADER ========== -->
+  
+	<header id="header" class="navbar navbar-expand-lg navbar-end navbar-light">
+    <div class="container">
+      <nav class="js-mega-menu navbar-nav-wrap">
+        <!-- Default Logo -->
+        <a class="navbar-brand" href="index.php" aria-label="Amman Foods">
+		
+          <img class="navbar-brand-logo" src="{% static 'uploads/ammanfoodslogo.png' %}" style="height:80px; width:auto;"alt="Amman Foods">
+        </a>
+        <!-- End Default Logo -->
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-default">
+            <i class="bi-list"></i>
+          </span>
+          <span class="navbar-toggler-toggled">
+            <i class="bi-x"></i>
+          </span>
+        </button>
+        <!-- End Toggler -->
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'home:index' %}">Home</a>
+            </li>
+			
+			<!-- Dropdown -->
+           
+            <!-- End Dropdown -->
+
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'product:product' %}">Products</a>
+            </li>
+
+            <!-- Pages -->
+            
+            <!-- End Pages -->
+
+            <li class="nav-item">
+              <!-- Search 
+              <button class="btn btn-ghost-secondary btn-sm btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarSearch" aria-controls="offcanvasNavbarSearch">
+                <i class="bi-search"></i>
+              </button>
+              <!-- End Search -->
+
+              <!-- Shopping Cart -->
+              <button type="button" class="btn btn-outline-info btn-sm btn-icon btn-transition" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarEmptyShoppingCart" aria-controls="offcanvasNavbarEmptyShoppingCart">
+                <i class="bi-basket">
+										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{cart | length}}</span>
+				</i>
+              </button>
+              <!-- End Shopping Cart -->
+
+              <a class="btn btn-primary btn-sm btn-transition" type="button" href="users/index.php">Login</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End Collapse -->
+      </nav>
+    </div>
+  </header>
+
+
+
+  {% block content %}{% endblock content %}
+
+
+
+
+  <footer class="border-top">
+    <div class="container">
+      <div class="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
+        <div class="col-lg-3 mb-5">
+          <div class="d-flex align-items-start flex-column h-100">
+            <!-- Logo -->
+            <a class="w-100 mb-3 mb-lg-auto" href="index.php" aria-label="Amman Foods">
+              <img class="brand" src="{% static 'uploads/ammanfoodslogo.png' %}" alt="Amman Foods">
+            </a>
+            <!-- End Logo -->
+
+            <p class="text-muted small mb-0">&copy; Amman Foods.<br> 2022 All rights reserved</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
+          <h5>Amman Foods</h5>
+
+          <!-- List -->
+          <ul class="list-unstyled list-py-1">
+            <li><a class="link-sm text-secondary" href="#">About Us</a></li>
+            <li><a class="link-sm text-secondary" href="#">Our Products</a></li>
+            <li><a class="link-sm text-secondary" href="#">Our Clients</a></li>
+            <li><a class="link-sm text-secondary" href="#">Contact Us</a></li>
+          </ul>
+          <!-- End List -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+          <h5>Support</h5>
+
+          <!-- List -->
+          <ul class="list-unstyled list-py-1">
+            <li><a class="link-sm text-secondary" href="#">FAQ</a></li>
+            <li><a class="link-sm text-secondary" href="#">Support</a></li>
+            <li><a class="link-sm text-secondary" href="#">Return policy</a></li>
+          </ul>
+          <!-- End List -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-4 col-lg-2 mb-5 mb-lg-0">
+          <h5 class="mb-3">Resources</h5>
+
+          <!-- List -->
+          <ul class="list-unstyled list-py-1">
+            <li><a class="link-sm link-secondary" href="#"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
+            <li><a class="link-sm link-secondary" href="#"><i class="bi-person-circle me-1"></i> Your Account</a></li>
+          </ul>
+          <!-- End List -->
+
+          <!-- Button Group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-white btn-sm dropdown-toggle" id="footerSelectLanguage" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+              <span class="d-flex align-items-center">
+                <span>English (US)</span>
+              </span>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="footerSelectLanguage">
+              <a class="dropdown-item d-flex align-items-center active" href="#">
+                <span>English</span>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <span>Arabic</span>
+              </a>
+              
+            </div>
+          </div>
+          <!-- End Button Group -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+
+      <hr class="my-0">
+
+      <div class="row align-items-sm-center content-space-1">
+        <div class="col-sm mb-4 mb-sm-0">
+          <!-- Socials -->
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
+                <i class="bi-facebook"></i>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
+                <i class="bi-instagram"></i>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a class="btn btn-soft-secondary btn-xs btn-icon" href="#">
+                <i class="bi-twitter"></i>
+              </a>
+            </li>
+
+          </ul>
+          <!-- End Socials -->
+        </div>
+
+        <div class="col-sm-auto">
+          <!-- List -->
+          <ul class="list-inline list-separator">
+            <li class="list-inline-item">
+              <a class="link-sm link-secondary" href="privacypolicy.php">Privacy &amp; policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="link-sm link-secondary" href="termsconditions.php">Terms &amp; conditions</a>
+            </li>
+          </ul>
+          <!-- End List -->
+        </div>
+      </div>
+    </div>
+  </footer>  <!-- ========== END FOOTER ========== -->
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+  <!-- Go To -->
+  <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
+       "offsetTop": 700,
+       "position": {
+         "init": {
+           "right": "2rem"
+         },
+         "show": {
+           "bottom": "2rem"
+         },
+         "hide": {
+           "bottom": "-2rem"
+         }
+       }
+     }'>
+    <i class="bi-chevron-up"></i>
+  </a>  <!-- Offcanvas Search -->
+  <div class="offcanvas offcanvas-top offcanvas-navbar-search bg-light" tabindex="-1" id="offcanvasNavbarSearch">
+    <div class="offcanvas-body">
+      <div class="container">
+        <div class="w-lg-75 mx-lg-auto">
+          <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="mb-7">
+            <!-- Form -->
+            <form>
+              <!-- Input Card -->
+              <div class="input-card">
+                <div class="input-card-form">
+                  <input type="text" class="form-control form-control-lg" placeholder="Search Ecome" aria-label="Search Ecome">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg">Search</button>
+              </div>
+              <!-- End Input Card -->
+            </form>
+            <!-- End Form -->
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Offcanvas Search -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarEmptyShoppingCart">
+    <div class="offcanvas-header justify-content-end border-0 pb-0">
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    	<div class="offcanvas-body">
+		<!-- List Group -->
+            <ul class="list-group list-group-flush list-group-no-gutters mb-5">
+							  
+			  
+			  <!-- Item -->
+        {% for item in cart %}
+              <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-4x3" src="{{item.product.image.url}}" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-1 ">
+                    <div class="row">
+                      <div class="col-sm-9 mb-3 mb-sm-0 float-start">
+                        <h6><a class="text-dark" href="#">{{item.product.title}}</a></h6>
+						<div class="d-grid gap-1">
+                          <div class="text-body">
+                            <span class="small">Qty:</span>
+                            <span class="fw-semibold small">{{item.product.quantity}}</span>
+                          </div>
+						</div>
+					  </div>
+                      <!-- End Col -->
+					</div>
+                    <!-- End Row -->
+                  </div>  
+				  <div class="col-4 col-sm-2 d-sm-inline-block text-right float-end">
+                       <div class="col-auto">
+                           <div class="d-grid gap-2">
+                            <a href="cart-delete.php?CartItemRemove=87" class="link-sm link-secondary small lead" onclick="return confirm('Are you sure you want to remove this product ?');">
+								<i class="bi-trash me-1"></i>
+							</a>
+						  
+                            <!--  <a class="link-sm link-secondary small" href="javascript:;">
+                               <i class="bi-heart me-1"></i> Save for later
+                              </a> -->
+                            </div>
+                          </div>
+                      </div>
+                      <!-- End Col -->
+                    
+                </div>
+              </li>
+              {% endfor %}
+              <!-- End Item -->
+							  
+			  
+			  
+				              
+            </ul>
+            <!-- End List Group -->
+			<a class="btn btn-primary float-end" type="submit" href="{% url 'cart:cart_list' %}">Proceed to Cart <i class="bi bi-chevron-compact-right"></i></a>
+	
+	
+	
+	
+	
+	
+	</div>
+	  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+  <!-- JS Ecome -->
+  <script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      // INITIALIZATION OF MEGA MENU
+      // =======================================================
+      new HSMegaMenu('.js-mega-menu', {
+          desktop: {
+            position: 'left'
+          }
+        })
+
+
+      // INITIALIZATION OF SHOW ANIMATIONS
+      // =======================================================
+      new HSShowAnimation('.js-animation-link')
+
+
+      // INITIALIZATION OF BOOTSTRAP VALIDATION
+      // =======================================================
+      HSBsValidation.init('.js-validate', {
+        onSubmit: data => {
+          data.event.preventDefault()
+          alert('Submited')
+        }
+      })
+
+
+      // INITIALIZATION OF BOOTSTRAP DROPDOWN
+      // =======================================================
+      HSBsDropdown.init()
+
+
+      // INITIALIZATION OF GO TO
+      // =======================================================
+      new HSGoTo('.js-go-to')
+
+
+      // INITIALIZATION OF SWIPER
+      // =======================================================
+      var sliderThumbs = new Swiper('.js-swiper-shop-hero-thumbs', {
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        history: false,
+        slidesPerView: 3,
+        spaceBetween: 15,
+        on: {
+          beforeInit: (swiper) => {
+            const css = `.swiper-slide-thumb-active .swiper-thumb-progress .swiper-thumb-progress-path {
+                  opacity: 1;
+                  -webkit-animation: ${swiper.originalParams.autoplay.delay}ms linear 0ms forwards swiperThumbProgressDash;
+                  animation: ${swiper.originalParams.autoplay.delay}ms linear 0ms forwards swiperThumbProgressDash;
+              }`
+              style = document.createElement('style')
+            document.head.appendChild(style)
+            style.type = 'text/css'
+            style.appendChild(document.createTextNode(css));
+
+            swiper.el.querySelectorAll('.js-swiper-thumb-progress')
+            .forEach(slide => {
+              slide.insertAdjacentHTML('beforeend', '<span class="swiper-thumb-progress"><svg version="1.1" viewBox="0 0 160 160"><path class="swiper-thumb-progress-path" d="M 79.98452083651917 4.000001576345426 A 76 76 0 1 1 79.89443752470656 4.0000733121155605 Z"></path></svg></span>')
+            })
+          },
+        },
+      });
+
+      var swiper = new Swiper('.js-swiper-shop-classic-hero',{
+        autoplay: true,
+        loop: true,
+        navigation: {
+          nextEl: '.js-swiper-shop-classic-hero-button-next',
+          prevEl: '.js-swiper-shop-classic-hero-button-prev',
+        },
+        thumbs: {
+          swiper: sliderThumbs
+        }
+      });
+
+
+      // INITIALIZATION OF COUNTDOWN
+      // =======================================================
+      const oneYearFromNow = new Date()
+
+      document.querySelectorAll('.js-countdown').forEach(item => {
+        const days = item.querySelector('.js-cd-days'),
+          hours = item.querySelector('.js-cd-hours'),
+          minutes = item.querySelector('.js-cd-minutes'),
+          seconds = item.querySelector('.js-cd-seconds')
+
+        countdown(oneYearFromNow.setFullYear(
+          oneYearFromNow.getFullYear() + 1),
+          ts => {
+            days.innerHTML = ts.days
+            hours.innerHTML = ts.hours
+            minutes.innerHTML = ts.minutes
+            seconds.innerHTML = ts.seconds
+          },
+          countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS
+        )
+      })
+    })()
+  </script>  <!-- JS Implementing Plugins -->
+
+
+
+<!-- JS Plugins Init. -->
+<script>
+  (function() {
+    // INITIALIZATION OF SWIPER
+    // =======================================================
+    var autoplay = new Swiper('.js-swiper-autoplay', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.js-swiper-autoplay-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.js-swiper-autoplay-button-next',
+        prevEl: '.js-swiper-autoplay-button-prev',
+      },
+	  slidesPerView: 2,
+      breakpoints: {
+        380: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 15,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 15,
+        },
+      },
+    });
+  })()
+</script>
+  
+
+
+</body>
+
+</html>
