@@ -75,8 +75,12 @@
             <li class="nav-item">
               <a class="nav-link " href="{% url 'product:product' %}">Products</a>
             </li>
-
+            {% if request.user.is_authenticated %}
             <!-- Pages -->
+            <li class="nav-item">
+              <a class="nav-link " href="">{{request.user.username}}</a>
+            </li>
+            {% endif %}
             
             <!-- End Pages -->
 
@@ -94,8 +98,11 @@
 				</i>
               </button>
               <!-- End Shopping Cart -->
-
-              <a class="btn btn-primary btn-sm btn-transition" type="button" href="users/index.php">Login</a>
+              {% if request.user.is_authenticated %}
+              <a class="btn btn-primary btn-sm btn-transition" type="button" href="{% url 'accounts:logout' %}">logout</a>
+              {% else %}
+              <a class="btn btn-primary btn-sm btn-transition" type="button" href="{% url 'accounts:login' %}">Login</a>
+              {% endif %}
             </li>
           </ul>
         </div>

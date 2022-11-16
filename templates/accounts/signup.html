@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Amman Foods
+{% endblock title %}
+
+{% block content %}
+
+<section class="container mt-3" style="display: flex; justify-content: center; width: fit-content; gap: 30px;">
+    <a class="btn btn-primary btn-sm btn-transition" type="button" href="{% url 'accounts:login' %}" >login</a>
+    <a class="btn btn-outline-light text-dark btn-sm" type="button">signup</a>
+</section>
+
+
+
+<section class="container mt-3" style="display: flex; justify-content: center; width: fit-content;">
+    <form action="" method="POST" class="">
+        <p>Username :</p>{{ form.username }}
+        <p>Email :</p>{{ form.email }}
+        <p>Password :</p>{{ form.password }}
+        <p>Confirm Password :</p>{{ form.password2 }}
+        {% csrf_token %}
+
+        <div style="margin: 10px;">
+            <button class="btn btn-dark">Register</button>
+        </div>
+    </form>
+</section>
+
+
+
+
+
+{% endblock content %}
