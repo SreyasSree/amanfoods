@@ -9,9 +9,27 @@ def product(request,id=None):
     
     if id:
         cate = get_object_or_404(Category,id=id)
-        pro = Product.objects.filter(Cate=Category)
+        pro = Product.objects.filter(category=cate)
+        cat = Category.objects.all()
 
-        return render(request , 'product/products.html',{'pro':pro,'cate':cate})
+        context ={
+        'cat':cat,
+        'pro':pro,
+        'cate':cate,
+        }
+
+        return render(request , 'product/products.html',context)
+
+    else:
+        pro =Product.objects.all()
+        cat =Category.objects.all()
+
+        context ={
+        'cat':cat,
+        'pro':pro,
+        }
+        
+        return render(request,'product/products.html',context)
 
 
     cat = Category.objects.all()
@@ -26,12 +44,12 @@ def product(request,id=None):
 
 
 def productsingle(request,id):
-    # cat = Category.objects.all()
+    cat = Category.objects.all()
     pro = Product.objects.get(id=id)
 
 
     context ={
-        # 'cat':cat,
+        'cat':cat,
         'pro':pro,
     }
     return render(request , 'product/productsingle.html',context)

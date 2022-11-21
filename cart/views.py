@@ -9,8 +9,19 @@ from .models import Order , OrderItem
 # Create your views here.
 
 def cart_list(request):
+    cat = Category.objects.all()
+    pro = Product.objects.all()
+
     cart = Cart(request)
-    return render(request , 'cart/cart.html',{'cart':cart})
+
+
+    context ={
+        'cat':cat,
+        'pro':pro,
+        'cart':cart,
+    }
+    
+    return render(request , 'cart/cart.html',context)
 
 
 

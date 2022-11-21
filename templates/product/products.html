@@ -41,37 +41,21 @@ Amman Foods
 					<div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
 					  <div class="w-100">
 						<!-- Form -->
-						<form action="product.php" method="POST">
+						{% for Category in cat %}
+						<form action="{% url 'product:products' Category.pk %}" method="POST">
+							{% csrf_token %}
 						  <div class="border-bottom pb-4 mb-4">
 							<h5>Category</h5>
 
 							<div class="d-grid gap-2">
-							  							  							  
+							
 							  <!-- Checkboxes -->
 							  <div class="form-check" required>
-								<input class="form-check-input" type="checkbox" name="cat[]" value="1">
-								<label class="form-check-label d-flex" >Cleaning  <span class="ms-auto">(24)</span></label>
+								<input class="form-check-input" type="checkbox" name="cat[]" value="1" >
+								<label class="form-check-label d-flex" >{{Category.title}}<span class="ms-auto">{{Category.categories.all.count}}</span></label>
 							  </div>
 							  <!-- End Checkboxes -->
-							  
-							  							  							  
-							  <!-- Checkboxes -->
-							  <div class="form-check" required>
-								<input class="form-check-input" type="checkbox" name="cat[]" value="2">
-								<label class="form-check-label d-flex" >Panatary <span class="ms-auto">(15)</span></label>
-							  </div>
-							  <!-- End Checkboxes -->
-							  
-							  							  							  
-							  <!-- Checkboxes -->
-							  <div class="form-check" required>
-								<input class="form-check-input" type="checkbox" name="cat[]" value="3">
-								<label class="form-check-label d-flex" >General <span class="ms-auto">(6)</span></label>
-							  </div>
-							  <!-- End Checkboxes -->
-							  
-							  							  
-							  
+
 							</div>
 							
 							
@@ -79,11 +63,13 @@ Amman Foods
 						  <div class="d-grid mb-2">
 							<button class="btn btn-primary rounded-pill btn-sm" type="submit" name="catname">Apply</button>
 						  </div>
+						  
 						  <div class="d-grid mb-2">
-							<a type="button" class="btn btn-primary rounded-pill btn-sm" href="product.php">Clear All</a>
+							<a type="button" class="btn btn-primary rounded-pill btn-sm" href="{% url 'product:product' %}">Clear All</a>
 						  </div>
+						  
 						</form>
-						
+						{% endfor %}
 						<!-- End Form -->
 					  </div>
 					</div>

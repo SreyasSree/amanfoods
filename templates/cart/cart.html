@@ -130,7 +130,7 @@
 					  <div class="flex-grow-1 ms-3 ">
 						<div class="row">
 						  <div class="col-sm-7 mb-3 mb-sm-0">
-							<h5><a class="text-dark" href="https://amansfood.com/product-overview.php?product=202">{{item.product.title}}</a></h5>
+							<h5><a class="text-dark" href="{% url 'product:productsingle' item.product.pk %}">{{item.product.title}}</a></h5>
 							<p>{{item.product.price}}</p>
 
 						   </div>

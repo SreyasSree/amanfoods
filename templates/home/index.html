@@ -125,7 +125,7 @@ Amman Foods
 
 				<div class="card-body">
 					<div class="mb-1">
-												<a class="link-sm link-secondary" href="#category">{{Product.category}}</a>
+												<a class="link-sm link-secondary" href="{% url 'product:product'  %}">{{Product.category}}</a>
 					</div>
 					<a class="text-dark" href="{% url 'product:productsingle' Product.pk %}">{{Product.title}}</a>
 						<p class="card-text text-body">{{Product.quantity}}</p>
